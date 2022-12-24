@@ -15,7 +15,7 @@ function LayoutPartial({ children }: { children: React.ReactNode }) {
       <main className="container grow mx-auto pt-4">{children}</main>
 
       <footer className="container flex-none mx-auto">
-        <a href="#">some footer link</a>
+        <a href="#">Home</a>
       </footer>
     </div>
   );
