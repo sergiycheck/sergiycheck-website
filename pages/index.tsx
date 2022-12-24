@@ -1,5 +1,7 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { Layout } from '../components/layout';
+import authorPic from '../public/imgs/me.png';
 
 export default function Home() {
   return (
@@ -10,7 +12,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h2 className="text-center underline font-semibold">home heading</h2>
+      <div className="flex justify-center">
+        <Image src={authorPic} alt="sergiycheck"></Image>
+      </div>
+      <h1 className="text-center underline font-semibold mt-4">
+        Serhii Kuzmych Full stack Node.js developer
+      </h1>
     </Layout>
   );
 }
