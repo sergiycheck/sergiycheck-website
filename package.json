@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:e2e:headless": "start-server-and-test 'yarn start' http://localhost:3000 'yarn cy:run'"
   },
   "dependencies": {
     "@types/node": "18.11.9",
@@ -17,10 +20,12 @@
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "start-server-and-test": "^1.15.2",
     "typescript": "4.9.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "cypress": "^12.2.0",
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4"
   }
