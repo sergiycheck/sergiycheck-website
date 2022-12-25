@@ -6,6 +6,11 @@ import { motion, Variants } from 'framer-motion';
 import { Layout } from '../components/layout';
 import authorPic from '../public/imgs/me.png';
 
+const apperOnScreenVariants: Variants = {
+  offscreen: { opacity: 0 },
+  onscreen: { opacity: 1 },
+};
+
 export default function Home() {
   const [texts] = React.useState(() => {
     const textsArr = [];
@@ -29,12 +34,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex justify-center">
-        <Image src={authorPic} alt="sergiycheck"></Image>
-      </div>
-      <h1 className="text-center underline font-semibold mt-4">
-        Serhii Kuzmych Full stack Node.js developer
-      </h1>
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.8 }}
+        variants={apperOnScreenVariants}
+      >
+        <div className="flex justify-center">
+          <Image src={authorPic} alt="sergiycheck"></Image>
+        </div>
+
+        <h1 className="text-center underline font-semibold mt-4">
+          Serhii Kuzmych Full stack Node.js developer
+        </h1>
+      </motion.div>
 
       <div className="flex flex-col gap-10">
         {texts.map((text, i) => (
@@ -45,11 +58,6 @@ export default function Home() {
   );
 }
 
-const textBlockVariants: Variants = {
-  offscreen: { opacity: 0 },
-  onscreen: { opacity: 1 },
-};
-
 export function TextBlockComponent({ text }: { text: string }) {
   return (
     <motion.div
@@ -57,7 +65,7 @@ export function TextBlockComponent({ text }: { text: string }) {
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.8 }}
       className="rounded-xl border-2 border-slate-500 p-4"
-      variants={textBlockVariants}
+      variants={apperOnScreenVariants}
     >
       <motion.p className="text-center font-medium ">{text}</motion.p>
     </motion.div>
