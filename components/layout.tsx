@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
+import { motion, useScroll } from 'framer-motion';
 
 function LayoutPartial({ children }: { children: React.ReactNode }) {
   return (
@@ -41,9 +42,17 @@ function LayoutNavBar({ children }: { children: React.ReactNode }) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { scrollYProgress } = useScroll();
+
   return (
-    <LayoutNavBar>
-      <LayoutPartial>{children}</LayoutPartial>
-    </LayoutNavBar>
+    <>
+      <motion.div
+        className="fixed h-2 inset-0 bg-slate-500 origin-[0%]"
+        style={{ scaleX: scrollYProgress }}
+      ></motion.div>
+      <LayoutNavBar>
+        <LayoutPartial>{children}</LayoutPartial>
+      </LayoutNavBar>
+    </>
   );
 }
