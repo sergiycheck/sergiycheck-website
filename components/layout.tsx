@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { DarkModeSwitcher } from './DarkModeSwitcher';
 
 function LayoutPartial({ children }: { children: React.ReactNode }) {
@@ -28,7 +28,7 @@ function LayoutPartial({ children }: { children: React.ReactNode }) {
 function LayoutNavBar({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container mx-auto ">
         <ul className="columns-3">
           <li className="font-bold underline">
             <Link href="/">Home</Link>
@@ -48,17 +48,11 @@ function LayoutNavBar({ children }: { children: React.ReactNode }) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { scrollYProgress } = useScroll();
-
   return (
-    <>
-      <motion.div
-        className="fixed h-2 inset-0 bg-slate-500 origin-[0%]"
-        style={{ scaleX: scrollYProgress }}
-      ></motion.div>
+    <motion.div className="min-h-screen bg-white dark:bg-slate-800 text-slate-900 dark:text-white ">
       <LayoutNavBar>
         <LayoutPartial>{children}</LayoutPartial>
       </LayoutNavBar>
-    </>
+    </motion.div>
   );
 }
