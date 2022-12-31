@@ -18,7 +18,7 @@ function LayoutPartial({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      <footer className="container flex-none mx-auto">
+      <footer className="container flex-none mx-auto p-4">
         <a href="#">Home</a>
       </footer>
     </div>
@@ -28,7 +28,7 @@ function LayoutPartial({ children }: { children: React.ReactNode }) {
 function LayoutNavBar({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="container mx-auto ">
+      <div className="container mx-auto p-4">
         <ul className="columns-3">
           <li className="font-bold underline">
             <Link href="/">Home</Link>
