@@ -12,11 +12,14 @@
     "cy:e2e:headless": "start-server-and-test 'yarn start' http://localhost:3000 'yarn cy:run'"
   },
   "dependencies": {
+    "@next/font": "13.0.3",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "clsx": "^1.2.1",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
+    "framer-motion": "^8.0.2",
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
