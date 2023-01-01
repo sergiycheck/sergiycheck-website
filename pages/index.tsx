@@ -12,8 +12,10 @@ const apperOnScreenVariants: Variants = {
 };
 
 export default function Home() {
+  const scrollRef = React.useRef(null);
+
   return (
-    <Layout>
+    <Layout ref={scrollRef}>
       <Head>
         <title>Full stack Node.js developer next</title>
         <meta
@@ -26,7 +28,7 @@ export default function Home() {
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ root: scrollRef }}
         variants={apperOnScreenVariants}
         className="p-4 gap-4"
       >
@@ -36,7 +38,7 @@ export default function Home() {
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ root: scrollRef }}
         variants={apperOnScreenVariants}
         className="flex flex-col sm:flex-row p-4 gap-4"
       >

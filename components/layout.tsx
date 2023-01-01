@@ -47,12 +47,26 @@ function LayoutNavBar({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <motion.div className="min-h-screen bg-white dark:bg-slate-800 text-slate-900 dark:text-white ">
-      <LayoutNavBar>
-        <LayoutPartial>{children}</LayoutPartial>
-      </LayoutNavBar>
-    </motion.div>
-  );
-}
+export const Layout = React.forwardRef(
+  (
+    {
+      children,
+    }: {
+      children: React.ReactNode;
+    },
+    ref?: React.Ref<HTMLDivElement> | undefined
+  ) => {
+    return (
+      <motion.div
+        ref={ref}
+        className="min-h-screen bg-white dark:bg-slate-800 text-slate-900 dark:text-white "
+      >
+        <LayoutNavBar>
+          <LayoutPartial>{children}</LayoutPartial>
+        </LayoutNavBar>
+      </motion.div>
+    );
+  }
+);
+
+Layout.displayName = 'Layout';
