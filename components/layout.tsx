@@ -28,15 +28,15 @@ function LayoutPartial({ children }: { children: React.ReactNode }) {
 function LayoutNavBar({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="container mx-auto px-4">
-        <ul className="columns-3 py-5">
-          <li className="font-bold underline">
+      <div className="container mx-auto px-4 py-5">
+        <ul className="columns-3">
+          <li className="font-bold p-2">
             <Link href="/">Home</Link>
           </li>
-          <li className="font-bold underline">
+          <li className="font-bold p-2">
             <Link href="/posts">Posts</Link>
           </li>
-          <li>
+          <li className="font-bold p-2">
             <DarkModeSwitcher />
           </li>
         </ul>
