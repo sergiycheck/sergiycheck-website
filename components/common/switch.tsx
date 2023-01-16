@@ -11,7 +11,7 @@ export const SwitchElement = React.forwardRef(
     const { labelText, checked, onClick } = props;
 
     return (
-      <div className="flex justify-center gap-2">
+      <div className="flex justify-center ">
         <div
           ref={ref}
           onClick={onClick}
@@ -27,7 +27,7 @@ export const SwitchElement = React.forwardRef(
             )}
           ></div>
         </div>
-        <div className="inline-block">{labelText}</div>
+        <div className="px-1 inline-block">{labelText}</div>
       </div>
     );
   }
