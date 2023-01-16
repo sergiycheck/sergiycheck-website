@@ -28,8 +28,8 @@ function LayoutPartial({ children }: { children: React.ReactNode }) {
 function LayoutNavBar({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="container mx-auto p-4">
-        <ul className="columns-3">
+      <div className="container mx-auto px-4">
+        <ul className="columns-3 py-5">
           <li className="font-bold underline">
             <Link href="/">Home</Link>
           </li>
