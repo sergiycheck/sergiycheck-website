@@ -9,7 +9,7 @@ const font = Montserrat({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${font.className} text-sm`}>
+    <main className={`${font.className}`}>
       <Component {...pageProps} />
     </main>
   );

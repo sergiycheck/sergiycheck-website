@@ -11,7 +11,7 @@ export const SwitchElement = React.forwardRef(
     const { labelText, checked, onClick } = props;
 
     return (
-      <div className="flex justify-center ">
+      <div className="flex justify-end items-center gap-2">
         <div
           ref={ref}
           onClick={onClick}

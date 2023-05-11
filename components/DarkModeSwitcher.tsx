@@ -34,7 +34,7 @@ export const DarkModeSwitcher = () => {
           return nextPrev;
         });
       }}
-      labelText={`${checked ? 'dark' : 'light'}`}
+      labelText={`${checked ? 'Dark' : 'Light'}`}
     />
   );
 };
