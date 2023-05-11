@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { DarkModeSwitcher } from './DarkModeSwitcher';
+import { Anchor1 } from './common/shared';
 
 function LayoutPartial({ children }: { children: React.ReactNode }) {
   return (
@@ -19,7 +20,9 @@ function LayoutPartial({ children }: { children: React.ReactNode }) {
       </main>
 
       <footer className="container flex-none mx-auto p-4">
-        <a href="#">Home</a>
+        <Link href="/" className="font-bold">
+          Home
+        </Link>
       </footer>
     </div>
   );
@@ -29,13 +32,14 @@ function LayoutNavBar({ children }: { children: React.ReactNode }) {
   return (
     <>
       <div className="container mx-auto px-4 py-5">
-        <ul className="columns-3">
-          <li className="font-bold p-2">
-            <Link href="/">Home</Link>
+        <ul className="columns-2">
+          <li className="p-2">
+            <Link href="/" className="font-bold">
+              Home
+            </Link>
           </li>
-          <li className="font-bold p-2">
-            <Link href="/posts">Posts</Link>
-          </li>
+          {/* TODO: add link to custom posts about js and different fields */}
+
           <li className="font-bold p-2">
             <DarkModeSwitcher />
           </li>
@@ -59,7 +63,7 @@ export const Layout = React.forwardRef(
     return (
       <motion.div
         ref={ref}
-        className="min-h-screen bg-white dark:bg-slate-800 text-slate-900 dark:text-white "
+        className="min-h-screen bg-white dark:bg-slate-800 text-black dark:text-white"
       >
         <LayoutNavBar>
           <LayoutPartial>{children}</LayoutPartial>
