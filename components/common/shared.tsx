@@ -20,7 +20,7 @@ export const Text1 = React.forwardRef(
     return (
       <div
         ref={ref}
-        className="text-base line-clamp-3 leading-relaxed tracking-normal font-bold"
+        className="text-base line-clamp-3 leading-relaxed tracking-normal "
         {...attributes}
       >
         {children}
@@ -51,7 +51,7 @@ export const Anchor1 = React.forwardRef(
     return (
       <a
         ref={ref}
-        className="text-base line-clamp-3 leading-relaxed tracking-normal font-bold"
+        className="text-base line-clamp-3 leading-relaxed tracking-normal "
         {...attributes}
       >
         {children}

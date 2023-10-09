@@ -4,12 +4,28 @@ import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 
 import { Layout } from '../components/layout';
-import authorPic from '../public/imgs/me.png';
+import authorPic from '../public/imgs/avatar-removed-bg.png';
 import { Anchor1, Text1, Title1 } from '../components/common/shared';
+import { formatDistance, formatDistanceToNowStrict } from 'date-fns';
 
-const apperOnScreenVariants: Variants = {
+const appearOnScreenVariants: Variants = {
   offscreen: { opacity: 0 },
   onscreen: { opacity: 1 },
+};
+
+const cardVariants: Variants = {
+  offscreen: {
+    y: 150,
+  },
+  onscreen: {
+    y: 0,
+    rotate: 0,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
 };
 
 export default function Home() {
@@ -30,7 +46,7 @@ export default function Home() {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ root: scrollRef }}
-        variants={apperOnScreenVariants}
+        variants={appearOnScreenVariants}
         className="p-4 gap-4"
       >
         <Title1>Welcome, My name is Serhii Kuzmych.</Title1>
@@ -40,34 +56,20 @@ export default function Home() {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ root: scrollRef }}
-        variants={apperOnScreenVariants}
+        variants={appearOnScreenVariants}
         className="flex flex-col sm:flex-row p-4 gap-4"
       >
         <div className="basis-full order-2 sm:order-1 sm:basis-6/12 flex flex-col gap-4 items-center justify-center">
           <div className="d-flex flex-col">
             <Text1>
-              I&apos;m Full Stack Node.js developer based in Novovolynsk, Volyn,
-              UA.
+              I&apos;m Full Stack Javascript developer based in Lviv, Lviv
+              Oblast, UA.
             </Text1>
-            <Text1>2 + years experince of work.</Text1>
-            <Text1>
-              Developing scalable and secure client and server side
-              applications.
-            </Text1>
-            <Text1>
-              Have knowledge and experience with creating Node.js full stack
-              projects from scratch, database creation and interaction,
-              interaction with third-party web apis, using AWS and GCP cloud
-              services, application containerization, covering client and server
-              side apps with tests, deployment, ci/cd process.
-            </Text1>
-            <Text1>
-              Detail-oriented and deep understanding in such languages
-              Typescript, Javascript, Sql, Bash scripts, Yml.
-            </Text1>
-            <Text1>
-              Good organization and listening and communication skills.
-              Attentive to details.
+            <Text1 className="mt-4">
+              With more than 5 years of hands-on experience in full-stack
+              development, I have a proven track record of delivering successful
+              projects across various domains, including crypto, cyber security,
+              online marketplaces, blogs, and real-time applications.
             </Text1>
           </div>
         </div>
@@ -123,27 +125,196 @@ export default function Home() {
         </div>
       </motion.div>
 
+      {/* experience 1 */}
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true }}
         className="flex flex-col gap-10 p-4"
-        variants={apperOnScreenVariants}
+        variants={cardVariants}
       >
-        <motion.div className="font-medium ">
-          <Text1 className="font-bold">Cyberflip (Full-stack Node.js)</Text1>
-          <Text1>August 2022 - Present time (December 2022)</Text1>
+        <motion.div>
+          <Text1 className="font-bold">IPOFUNNEL (Full-stack Node.js)</Text1>
           <Text1>
-            Implementing features on the back-end with NestJs, Postgresql. Using
-            Jenkins to configure pipelines. Using google sql. Implementing
-            features on the front-end side with Reactjs, refactoring the
-            project. Redux-toolkit integration with Rtk- query. Testing the
-            project with Cypress. Gitlab pipeline impementation. Developing web3
-            login with providers. Deploy with firebase and google cloud build.
-            Learning google cloud technologies, NestJs, React, Cypress, Gitlab.
-            Taking part in daily meetings and features discussion. Interviewing
-            candidates.
+            March 2022 - Present time{' '}
+            {formatDistanceToNowStrict(new Date(2022, 3, 1))}
           </Text1>
+
+          {/* Project: Bitoftrade */}
+          <ul className="mt-4 space-y-4 text-gray-500 list-disc list-inside dark:text-gray-200">
+            <li>
+              Project: Bitoftrade
+              <ol className="pl-5 mt-2 space-y-1 list-disc list-inside">
+                <li>
+                  Design & implementation of more than 3 products - configured
+                  data fetching from remote APIs
+                </li>
+                <li>Trading view integration</li>
+                <li>Business logic implementation on the FE & BE sides</li>
+                <li>Customizable and pluggable crypto widget implementation</li>
+                <li>
+                  Storing and processing transactions data on the BE side,
+                  interaction with smart contracts
+                </li>
+                <li>Testing of the BE and FE</li>
+                <li>CI/CD configuration</li>
+                <li>Performance optimization</li>
+                <li>Refactoring and code improvements</li>
+                <li>Code review, feature discussions</li>
+                <li>Creating documentation</li>
+                <li>
+                  A lot of small fixes and features on the BE and FE, auth,
+                  users, other entities
+                </li>
+                <li>BE and FE project creation and configuration</li>
+                <li>UI layout implementation</li>
+              </ol>
+            </li>
+          </ul>
+          {/*  Project: Tokenframe */}
+          <ul className=" mt-4 space-y-4 text-gray-500 list-disc list-inside dark:text-gray-200">
+            <li>
+              Project: Tokenframe
+              <ol className="pl-5 mt-2 space-y-1 list-disc list-inside">
+                <li>BE and FE project creation and configuration</li>
+                <li>
+                  Configuration of fetching and storing data from remote API
+                  providers - business logic implementation FE & BE sides
+                </li>
+                <li>
+                  Technical implementation of interaction with IoT devices
+                </li>
+                <li>Testing & code review, CI/CD</li>
+                <li>
+                  Crypto wallets integration, interaction with smart contracts
+                </li>
+                <li>Interactive animated UI elements implementation</li>
+                <li>
+                  A lot of small fixes and features on the BE and FE, auth,
+                  users, other entities
+                </li>
+                <li>UI layout implementation</li>
+              </ol>
+            </li>
+          </ul>
+          {/* Project: PIXEL NFT */}
+          <ul className=" mt-4 space-y-4 text-gray-500 list-disc list-inside dark:text-gray-200">
+            <li>
+              Project: PIXEL NFT
+              <ol className="pl-5 mt-2 space-y-1 list-disc list-inside">
+                <li>BE and FE project creation and configuration</li>
+                <li>
+                  Creating selectable 10k x 10k cells grid for NFT purchase -
+                  Wallets, Web3 providers integration
+                </li>
+                <li>Configuration of data management, storing & fetching</li>
+                <li>Testing & code review, CI/CD</li>
+                <li>
+                  A lot of small fixes and features on the BE and FE, auth,
+                  users, other entities
+                </li>
+              </ol>
+            </li>
+          </ul>
+          {/* Project: Cyber security platform */}
+          <ul className=" mt-4 space-y-4 text-gray-500 list-disc list-inside dark:text-gray-200">
+            <li>
+              Project: Cyber security platform
+              <ol className="pl-5 mt-2 space-y-1 list-disc list-inside">
+                <li>Design implementation</li>
+                <li>Implementation of protection mechanism</li>
+                <li>
+                  Using AWS ML services to detect vulnerabilities - Long
+                  processing task handling
+                </li>
+                <li>Integration tests</li>
+                <li>FE & BE feature development</li>
+              </ol>
+            </li>
+          </ul>
+        </motion.div>
+      </motion.div>
+
+      {/* experience 2 */}
+      <motion.div
+        whileInView="onscreen"
+        viewport={{ once: true }}
+        initial="offscreen"
+        className="flex flex-col gap-10 p-4"
+        variants={cardVariants}
+      >
+        <motion.div>
+          <Text1 className="font-bold">
+            Full Stack Node.js Engineer, Synergy Way
+          </Text1>
+          <Text1>
+            May 2021 — March 2022{' '}
+            {formatDistance(new Date(2021, 7, 1), new Date(2022, 3, 1))}
+          </Text1>
+
+          {/* Social platform */}
+
+          <ul className=" space-y-4 text-gray-500 list-disc list-inside dark:text-gray-200">
+            <li>
+              Project: Social platform
+              <ol className="pl-5 mt-2 space-y-1 list-disc list-inside">
+                <li>DB, BE, FE design & implementation</li>
+                <li>
+                  Users auth, posts, and other business entities implementation,
+                  FE & BE, pagination, lazy loading, caching
+                </li>
+                <li>Real-time communication development</li>
+                <li>File upload with AWS S3</li>
+                <li>Social seamless login</li>
+                <li>Testing FE, BE</li>
+                <li>Code review & feature discussion, CI/CD</li>
+              </ol>
+            </li>
+          </ul>
+        </motion.div>
+      </motion.div>
+
+      {/* experience 3 */}
+      <motion.div
+        whileInView="onscreen"
+        viewport={{ once: true }}
+        initial="offscreen"
+        className="flex flex-col gap-10 p-4"
+        variants={cardVariants}
+      >
+        <motion.div>
+          <Text1 className="font-bold">
+            Full Stack Engineer at Kyiv Polytechnic Institute, Kiev
+          </Text1>
+          <Text1>
+            May 2019 — June 2021{' '}
+            {formatDistance(new Date(2019, 6, 1), new Date(2021, 6, 1))}
+          </Text1>
+
+          {/* Project: Educational*/}
+
+          <ul className=" space-y-4 text-gray-500 list-disc list-inside dark:text-gray-200">
+            <li>
+              Project: Educational
+              <ol className="pl-5 mt-2 space-y-1 list-disc list-inside">
+                <li>
+                  Creating internal educational projects, such as a student
+                  marks and attendance system, which is used by teachers and
+                  students to track their progress, and also by administration
+                  to track students progress and attendance
+                </li>
+                <li>
+                  Participating in a campus project, which is a platform for
+                  students and teachers to communicate and share information,
+                  including web API creation, database management, front-end
+                  development with WPF, and back-end development with ASP.NET
+                  Core
+                </li>
+                <li>MS SQL Server and Oracle database management</li>
+                <li>Code review & refactoring & feature discussion</li>
+              </ol>
+            </li>
+          </ul>
         </motion.div>
       </motion.div>
     </Layout>
